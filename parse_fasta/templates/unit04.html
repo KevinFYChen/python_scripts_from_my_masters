@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            td {
+              border: 1px solid rgb(80,80,80);
+              padding: 3px;
+            }
+            table {
+              border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Unit 4 solution</h1>
+        <!-- This shows how to display a list of variables in a loop -->
+        <table>
+          {% for entry in entries %}
+          <tr>
+              <td>{{ entry.get_ID() }}</td>
+              <td>{{ entry.get_length() }}</td>
+              <td>{{ entry.get_header() }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+    </body>
+</html>
