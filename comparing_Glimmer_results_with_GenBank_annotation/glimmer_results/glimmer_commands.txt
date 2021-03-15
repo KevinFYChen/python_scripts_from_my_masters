@@ -1,0 +1,6 @@
+  986  ~/glimmer3.02/bin/long-orfs -n -t 1.15 ../sequence.fasta run1.longorfs
+  987  ~/glimmer3.02/bin/extract -t ../sequence.fasta run1.longorfs > run1.train
+  988  ls -l
+  989  ~/glimmer3.02/bin/build-icm -r run1.icm < run1.train
+  990  ls
+  991  ~/glimmer3.02/bin/glimmer3 -o50 -g110 -t30 ../sequence.fasta run1.icm run1

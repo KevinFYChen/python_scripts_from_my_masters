@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            td {
+              border: 1px solid rgb(80,80,80);
+              padding: 3px;
+            }
+            table {
+              border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Gene Coordinates Comparison: GenBank vs. Glimmer3.02</h1>
+        <p>GenBank accession: AB011549.2<br>
+            Total number of reference genes: {{ total_ref }}<br>
+            Total number of predicted genes: {{ total_pred }}<br>
+            Count of exact coordinate matches: {{ num_exact }}<br>
+            Count of 5' only matches: {{ num_5end }}<br>
+            Count of 3' only matches: {{ num_3end }}<br>
+            Count of predicted genes that do not overlap with a reference gene: {{ num_non_overlap }}
+        </p>
+        <table>
+          <tr>
+            <th> &nbspReference ID&nbsp </th>
+            <th> &nbspReference Start&nbsp </th>
+            <th> &nbspReference End&nbsp </th>
+            <th> &nbspStrand&nbsp </th>
+            <th> &nbspPredicted Gene ID&nbsp </th>
+            <th> &nbspPredicted Gene Start&nbsp </th>
+            <th> &nbsp5' Match&nbsp </th>
+            <th> &nbspPredicted Gene End&nbsp </th>
+            <th> &nbsp3' Match&nbsp </th>
+            <th> &nbspConclusion&nbsp </th>
+          </tr>
+          {% for ref in ref_l %}
+          <tr>
+              <td>{{ ref.get_ID() }}</td>
+              <td>{{ ref.get_coord()[0] }}</td>
+              <td>{{ ref.get_coord()[1] }}</td>
+              <td>{{ ref.get_strand() }}</td>
+              <td>{{ match[ref.get_ID()][0].get_ID() }}</td>
+              <td>{{ match[ref.get_ID()][0].get_coord()[0] }}</td>
+              <td>{{ match[ref.get_ID()][1] }}</td>
+              <td>{{ match[ref.get_ID()][0].get_coord()[1] }}</td>
+              <td>{{ match[ref.get_ID()][2] }}</td>
+              <td>{{ match[ref.get_ID()][3] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+    </body>
+</html>
