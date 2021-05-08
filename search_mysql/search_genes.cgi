@@ -9,7 +9,7 @@ form = cgi.FieldStorage()
 target = form.getfirst('search_term')
 target='%'+target.lower()+'%'
 
-conn = mysql.connector.connect(user='fchen29', password='ShinC913', 
+conn = mysql.connector.connect(user='fchen29', password='123456', 
                                host='localhost', database='fchen29_chado')
 curs=conn.cursor()
 
